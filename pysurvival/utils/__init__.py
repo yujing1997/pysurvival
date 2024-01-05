@@ -1,6 +1,9 @@
 import copy
 import numpy as np
 import pandas as pd
+import os 
+import sys
+sys.path.append(os.path.join(os.getcwd(), 'pysurvival'))
 from pysurvival.utils._functions import _logrankScores
 # %matplotlib inline for Jupyter notebooks 
 

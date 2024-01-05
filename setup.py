@@ -7,10 +7,13 @@
 # http://www.apache.org/licenses/
 
 import os
+import sys
 import codecs
 import re
 import glob
 from setuptools import setup, Extension, find_packages
+# assert current path 
+sys.path.append(os.path.join(os.getcwd(), 'pysurvival'))
 
 # Checking if numpy is installed
 try:
@@ -63,8 +66,8 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.utils._functions",
-    sources = ["pysurvival/cpp_extensions/_functions.cpp",
-               "pysurvival/cpp_extensions/functions.cpp" ,
+    sources = ["pysurvival/pysurvival/cpp_extensions/_functions.cpp",
+               "pysurvival/pysurvival/cpp_extensions/functions.cpp" ,
                ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
@@ -72,10 +75,10 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.utils._metrics",
-    sources = ["pysurvival/cpp_extensions/_metrics.cpp",
-               "pysurvival/cpp_extensions/non_parametric.cpp",
-               "pysurvival/cpp_extensions/metrics.cpp",
-               "pysurvival/cpp_extensions/functions.cpp",
+    sources = ["pysurvival/pysurvival/cpp_extensions/_metrics.cpp",
+               "pysurvival/pysurvival/cpp_extensions/non_parametric.cpp",
+               "pysurvival/pysurvival/cpp_extensions/metrics.cpp",
+               "pysurvival/pysurvival/cpp_extensions/functions.cpp",
               ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
@@ -83,9 +86,9 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.models._non_parametric",
-    sources = ["pysurvival/cpp_extensions/_non_parametric.cpp",
-               "pysurvival/cpp_extensions/non_parametric.cpp",
-               "pysurvival/cpp_extensions/functions.cpp" 
+    sources = ["pysurvival/pysurvival/cpp_extensions/_non_parametric.cpp",
+               "pysurvival/pysurvival/cpp_extensions/non_parametric.cpp",
+               "pysurvival/pysurvival/cpp_extensions/functions.cpp" 
                ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
@@ -93,11 +96,11 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.models._survival_forest",
-    sources = [ "pysurvival/cpp_extensions/_survival_forest.cpp",
-                "pysurvival/cpp_extensions/survival_forest_data.cpp",
-                "pysurvival/cpp_extensions/survival_forest_utility.cpp",
+    sources = [ "pysurvival/pysurvival/cpp_extensions/_survival_forest.cpp",
+                "pysurvival/pysurvival/cpp_extensions/survival_forest_data.cpp",
+                "pysurvival/pysurvival/cpp_extensions/survival_forest_utility.cpp",
                 "pysurvival/cpp_extensions/survival_forest_tree.cpp",
-                "pysurvival/cpp_extensions/survival_forest.cpp", 
+                "pysurvival/pysurvival/cpp_extensions/survival_forest.cpp", 
                 ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
@@ -105,8 +108,8 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.models._coxph",
-    sources = [ "pysurvival/cpp_extensions/_coxph.cpp",
-                "pysurvival/cpp_extensions/functions.cpp" 
+    sources = [ "pysurvival/pysurvival/cpp_extensions/_coxph.cpp",
+                "pysurvival/pysurvival/cpp_extensions/functions.cpp" 
               ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
@@ -115,7 +118,7 @@ ext_modules = [
 
   Extension( 
     name = "pysurvival.models._svm",
-    sources = [ "pysurvival/cpp_extensions/_svm.cpp", 
+    sources = [ "pysurvival/pysurvival/cpp_extensions/_svm.cpp", 
               ],
     extra_compile_args = extra_compile_args, 
     language="c++", 
